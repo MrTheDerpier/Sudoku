@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#12355b">
+  <meta name="description" content="A high-contrast offline Sudoku PWA with hints, difficulty levels, and touch-friendly play.">
+  <title>Sudoku PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <noscript>This Sudoku game requires JavaScript to run.</noscript>
+  <div id="confetti" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Offline Sudoku</p>
+        <h1>Sudoku</h1>
+      </div>
+      <button id="installButton" class="ghost-button" type="button" hidden>Install</button>
+    </header>
+
+    <section class="controls" aria-label="Game controls">
+      <label class="difficulty-label" for="difficulty">Difficulty</label>
+      <select id="difficulty" aria-label="Choose difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+        <option value="expert">Expert</option>
+      </select>
+      <button id="newGame" type="button">New Game</button>
+      <button id="hint" type="button" class="secondary">Hint</button>
+    </section>
+
+    <section class="stats" aria-live="polite">
+      <div><span>Time</span><strong id="timer">00:00</strong></div>
+      <div><span>Moves</span><strong id="moves">0</strong></div>
+      <div><span>Mistakes</span><strong id="mistakes">0</strong></div>
+    </section>
+
+    <p id="status" class="status" role="status">Select a cell, then tap a number.</p>
+
+    <section class="board-wrap" aria-label="Sudoku board">
+      <div id="board" class="board" role="grid" aria-label="9 by 9 Sudoku board"></div>
+    </section>
+
+    <section class="keypad" aria-label="Number keypad">
+      <button type="button" data-number="1">1</button>
+      <button type="button" data-number="2">2</button>
+      <button type="button" data-number="3">3</button>
+      <button type="button" data-number="4">4</button>
+      <button type="button" data-number="5">5</button>
+      <button type="button" data-number="6">6</button>
+      <button type="button" data-number="7">7</button>
+      <button type="button" data-number="8">8</button>
+      <button type="button" data-number="9">9</button>
+      <button type="button" id="erase" class="wide">Erase</button>
+    </section>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
